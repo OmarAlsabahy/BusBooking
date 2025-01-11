@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">BusBooking</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sign_in">Sign in</string>
+    <string name="enter_your_email">Enter Your Email</string>
+    <string name="email">Email</string>
+    <string name="enter_your_password">Enter Your Password</string>
+    <string name="password">Password</string>
+    <string name="cont">Continue</string>
+    <string name="sign_up">Sign up</string>
+    <string name="enter_confirm_password">Enter Confirm Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="enter_your_phonenumber">Enter Your PhoneNumber</string>
+    <string name="phonenumber">PhoneNumber</string>
+    <string name="enter_your_username">Enter Your UserName</string>
+    <string name="username">UserName</string>
+    <string name="where_are_you_going">Where are you going?</string>
+    <string name="travel_from">Travel from</string>
+    <string name="from_where">From Where?</string>
+    <string name="where_to">Where to?</string>
+    <string name="search">Search</string>
+    <string name="departure_date">Departure Date</string>
+    <string name="date">Date</string>
+    <string name="departure_on">Departure On</string>
+    <string name="total_travel_time">Total Travel Time</string>
+    <string name="seat">Seat</string>
+    <string name="price">Price</string>
+    <string name="start">Start</string>
+    <string name="end">End</string>
+    <string name="book_now">Book Now</string>
+    <string name="no_travels_avaialble">No Travels Avaialble</string>
+</resources>
