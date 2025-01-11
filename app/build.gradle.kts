@@ -70,5 +70,6 @@ dependencies {
     implementation(libs.firebase.database)
     implementation(libs.glide)
     implementation(libs.gms.play.services.location)
+    implementation(libs.play.services.maps)
 
 }

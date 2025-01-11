@@ -20,10 +20,8 @@ class SearchRepo @Inject constructor(private val database: FirebaseDatabase){
                     val route = data.getValue(RouteModel::class.java)
                     if (route != null) {
                         if (route.end.trim().equals(end.trim())&&route.departureDate.trim().equals(date)) {
-                            val todayFormated = SimpleDateFormat("dd-MM-yyyy").format(Date())
-                           if (route.departureDate.trim().equals(todayFormated)){
+//                            val todayFormated = SimpleDateFormat("dd-MM-yyyy").format(Date())
                                list.add(route)
-                           }
                         }
                     }
                     callBack(list)

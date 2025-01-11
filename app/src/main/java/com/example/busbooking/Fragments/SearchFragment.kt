@@ -8,7 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.busbooking.Adapters.SearchTravelAdapter
+import com.example.busbooking.ClickListener.BookingClickListener
 import com.example.busbooking.R
 import com.example.busbooking.ViewModels.SearchViewModel
 import com.example.busbooking.databinding.FragmentSearchBinding
@@ -17,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 
 @AndroidEntryPoint
-class SearchFragment : Fragment() {
+class SearchFragment : Fragment() , BookingClickListener{
     lateinit var binding: FragmentSearchBinding
     val viewModel : SearchViewModel by viewModels()
     override fun onCreateView(
@@ -39,7 +41,7 @@ class SearchFragment : Fragment() {
                 binding.travelsRecycler.visibility = View.GONE
                 binding.txtNotAvailable.visibility = View.VISIBLE
             }else{
-                val adapter = SearchTravelAdapter(routes)
+                val adapter = SearchTravelAdapter(routes,this)
                 binding.travelsRecycler.adapter = adapter
                 binding.travelsRecycler.visibility = View.VISIBLE
                 binding.txtNotAvailable.visibility = View.GONE
@@ -98,5 +100,9 @@ class SearchFragment : Fragment() {
         calender.set(year,month,day)
         val formatedDate = SimpleDateFormat("dd-MM-yyyy").format(calender.time)
         binding.departureDateField.setText(formatedDate)
+    }
+
+    override fun onClick() {
+        findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToBookingFragment())
     }
 }
