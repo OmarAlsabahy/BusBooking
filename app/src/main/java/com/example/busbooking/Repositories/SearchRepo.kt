@@ -1,15 +1,19 @@
 package com.example.busbooking.Repositories
 
+import android.content.Context
+import android.location.Geocoder
+import android.os.Build
 import com.example.busbooking.Models.RouteModel
+import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import java.text.SimpleDateFormat
-import java.util.Date
 import javax.inject.Inject
 
 class SearchRepo @Inject constructor(private val database: FirebaseDatabase){
+    @Inject
+    lateinit var context: Context
 
     fun getTravelByStartAndEndAndDate(start: String , end: String , date: String , callBack:(List<RouteModel>)->Unit){
         val ref = database.getReference("Routes")
@@ -160,4 +164,18 @@ class SearchRepo @Inject constructor(private val database: FirebaseDatabase){
         })
     }
 
+    fun getLocationLatLngByName(name:String,callBack:(LatLng)->Unit){
+        val geoCoder = Geocoder(context)
+        if (Build.VERSION.SDK_INT>= Build.VERSION_CODES.TIRAMISU){
+            geoCoder.getFromLocationName(name , 1 , Geocoder.GeocodeListener { addresses->
+                val latlng = LatLng(addresses[0].latitude , addresses[0].longitude)
+                callBack(latlng)
+            })
+        }else{
+            val addresses = geoCoder.getFromLocationName(name,1)
+            val latLng = LatLng(addresses?.get(0)?.latitude!!, addresses.get(0).longitude!!)
+            callBack(latLng)
+        }
+
+    }
 }

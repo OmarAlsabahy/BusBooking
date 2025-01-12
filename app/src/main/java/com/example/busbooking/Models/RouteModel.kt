@@ -1,5 +1,9 @@
 package com.example.busbooking.Models
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class RouteModel(
     val routeId:String="",
     val start:String="",
@@ -11,4 +15,4 @@ data class RouteModel(
     val price:Float=0F,
     val imageUrl:String="",
     val travelTime:String=""
-)
+):Parcelable

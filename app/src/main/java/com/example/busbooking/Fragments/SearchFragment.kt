@@ -11,6 +11,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.busbooking.Adapters.SearchTravelAdapter
 import com.example.busbooking.ClickListener.BookingClickListener
+import com.example.busbooking.Models.LocationModel
+import com.example.busbooking.Models.RouteModel
 import com.example.busbooking.R
 import com.example.busbooking.ViewModels.SearchViewModel
 import com.example.busbooking.databinding.FragmentSearchBinding
@@ -102,7 +104,15 @@ class SearchFragment : Fragment() , BookingClickListener{
         binding.departureDateField.setText(formatedDate)
     }
 
-    override fun onClick() {
-        findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToBookingFragment())
+    override fun onClick(routeModel: RouteModel) {
+        viewModel.getLocationByName(routeModel.start){startLatLng->
+            viewModel.getLocationByName(routeModel.end){endLatLng->
+                val startLocation = LocationModel(startLatLng)
+                val endLocation = LocationModel(endLatLng)
+                findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToBookingFragment(routeModel , startLocation , endLocation))
+            }
+        }
     }
+
+
 }

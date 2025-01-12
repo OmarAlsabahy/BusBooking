@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.BookingFragment">
 
     <fragment
@@ -13,4 +14,96 @@
         android:layout_height="0dp"
         map:layout_constraintTop_toTopOf="parent"
         map:layout_constraintHeight_percent="0.50" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fare"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/map"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:textSize="@dimen/_15sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:fontFamily="@font/poppinsregular"
+        android:id="@+id/txtFare"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fare"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/_10sdp"
+        app:layout_constraintTop_toTopOf="@id/txtFare"
+        app:layout_constraintBottom_toBottomOf="@id/txtFare"
+        android:textSize="@dimen/_15sdp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppinsregular"
+        android:id="@+id/fare"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/you_pay"
+        android:textSize="@dimen/_15sdp"
+        app:layout_constraintStart_toStartOf="@id/txtFare"
+        app:layout_constraintTop_toBottomOf="@id/txtFare"
+        android:fontFamily="@font/poppinsregular"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:id="@+id/txtYouPay"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/you_pay"
+        app:layout_constraintEnd_toEndOf="@id/fare"
+        app:layout_constraintTop_toTopOf="@id/txtYouPay"
+        app:layout_constraintBottom_toBottomOf="@id/txtYouPay"
+        android:fontFamily="@font/poppinsregular"
+        android:textSize="@dimen/_15sdp"
+        android:textColor="@color/black"
+        android:id="@+id/youPay"/>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtYouPay"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintWidth_percent="0.50"
+        app:cornerRadius="@dimen/_8sdp"
+        android:backgroundTint="@android:color/transparent"
+        app:strokeWidth="@dimen/_1sdp"
+        app:strokeColor="@color/mainColor"
+        android:text="@string/seat"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppinsregular"
+        android:textSize="@dimen/_15sdp"
+        android:clickable="false"
+        android:id="@+id/btnSeat"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_add_24"
+        app:layout_constraintEnd_toEndOf="@id/btnSeat"
+        app:layout_constraintTop_toTopOf="@id/btnSeat"
+        app:layout_constraintBottom_toBottomOf="@id/btnSeat"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:id="@+id/btnAdd"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_minimize_24"
+        app:layout_constraintStart_toStartOf="@id/btnSeat"
+        app:layout_constraintTop_toTopOf="@id/btnSeat"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:id="@+id/btnMinus"/>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btnSeat"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.90"
+        android:backgroundTint="@color/mainColor"
+        android:text="@string/book"
+        android:fontFamily="@font/poppinssemibold"
+        android:textSize="@dimen/_18sdp"
+        android:id="@+id/btnBook"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

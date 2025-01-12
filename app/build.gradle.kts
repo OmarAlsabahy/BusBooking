@@ -6,6 +6,7 @@ plugins {
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -71,5 +72,6 @@ dependencies {
     implementation(libs.glide)
     implementation(libs.gms.play.services.location)
     implementation(libs.play.services.maps)
+    implementation("com.github.dangiashish:Google-Direction-Api:1.6")
 
 }

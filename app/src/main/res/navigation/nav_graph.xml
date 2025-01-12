@@ -51,5 +51,15 @@
         android:id="@+id/bookingFragment"
         android:name="com.example.busbooking.Fragments.BookingFragment"
         android:label="fragment_booking"
-        tools:layout="@layout/fragment_booking" />
+        tools:layout="@layout/fragment_booking">
+        <argument
+            android:name="routeModel"
+            app:argType="com.example.busbooking.Models.RouteModel" />
+        <argument
+            android:name="startLocation"
+            app:argType="com.example.busbooking.Models.LocationModel" />
+        <argument
+            android:name="endLocation"
+            app:argType="com.example.busbooking.Models.LocationModel" />
+    </fragment>
 </navigation>

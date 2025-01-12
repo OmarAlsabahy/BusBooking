@@ -34,7 +34,7 @@ class SearchTravelAdapter(private val travels : List<RouteModel> , private val l
             binding.startText.text = travel.start
             binding.endText.text = travel.end
             binding.btnBook.setOnClickListener {
-                listener.onClick()
+                listener.onClick(travel)
             }
         }
 

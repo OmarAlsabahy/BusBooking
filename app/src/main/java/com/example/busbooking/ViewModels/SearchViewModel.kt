@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.busbooking.Models.RouteModel
 import com.example.busbooking.Repositories.SearchRepo
+import com.google.android.gms.maps.model.LatLng
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 @HiltViewModel
@@ -56,6 +57,13 @@ class SearchViewModel @Inject constructor(private val repo:SearchRepo):ViewModel
     fun getTravelByStartAndEndAndDate(start:String,end:String,date:String){
         repo.getTravelByStartAndEndAndDate(start,end,date){routes->
             _searchedRoutes.value = routes
+        }
+    }
+
+    fun getLocationByName(name:String,callBack:(LatLng)->Unit){
+
+        repo.getLocationLatLngByName(name){latLng->
+            callBack(latLng)
         }
     }
 }

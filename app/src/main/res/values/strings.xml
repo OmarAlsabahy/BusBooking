@@ -31,4 +31,7 @@
     <string name="book_now">Book Now</string>
     <string name="no_travels_avaialble">No Travels Avaialble</string>
     <string name="mapKey">AIzaSyC4cCXwPJPXLJ_OAx93ebxC0I3l9DtV1qM</string>
+    <string name="fare">Fare</string>
+    <string name="you_pay">You Pay</string>
+    <string name="book">Book</string>
 </resources>

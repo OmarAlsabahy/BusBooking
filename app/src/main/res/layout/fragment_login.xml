@@ -79,6 +79,7 @@
             app:icon="@drawable/baseline_arrow_forward_24"
             app:iconGravity="textEnd"
             app:layout_constraintWidth_percent="0.90"
+            android:fontFamily="@font/poppinssemibold"
             android:id="@+id/btnContinue"/>
     <ProgressBar
         android:layout_width="wrap_content"
