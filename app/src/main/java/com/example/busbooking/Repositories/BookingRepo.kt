@@ -22,23 +22,26 @@ class BookingRepo @Inject constructor(private val database: FirebaseDatabase) {
     @Inject
     lateinit var auth: FirebaseAuth
     fun bookTicket(routeModel: RouteModel, numberOfTickets: Int , callBack:(Boolean)->Unit) {
-        var busId = ""
         val bookingRef = database.getReference("Bookings")
-        val bookingId = bookingRef.push().key
         val userId = auth.currentUser?.uid
-
-
         findBus(routeModel, numberOfTickets) { busModel, isAvailable ->
             if (isAvailable) {
-                val busId = busModel.busId
-                val booking = Bookings(
-                    bookingId = bookingId!!,
-                    busId = busId,
-                    userId = userId!!,
-                    numberOfTickets = numberOfTickets,
-                    totalPrice = numberOfTickets * routeModel.price
-                )
-                bookingRef.child(bookingId).setValue(booking)
+                val busId = routeModel.busId
+               for (i in 1..numberOfTickets){
+                   val bookingId = bookingRef.push().key
+                   val booking = Bookings(
+                       bookingId = bookingId!!,
+                       busId = busId,
+                       userId = userId!!,
+                       totalPrice = routeModel.price,
+                        date = routeModel.departureDate,
+                       time = routeModel.departureTime,
+                       startLocation = routeModel.start,
+                       endLocation = routeModel.end,
+                       travelTime = routeModel.travelTime
+                   )
+                   bookingRef.child(bookingId).setValue(booking)
+               }
                 updateBusData(busModel, numberOfTickets)
                 callBack(true)
             }else{
@@ -59,22 +62,23 @@ class BookingRepo @Inject constructor(private val database: FirebaseDatabase) {
         callBack: (BusModel, Boolean) -> Unit
     ) {
         val busRef = database.getReference("Buses")
-        busRef.orderByChild("routeId").equalTo(routeModel.routeId.trim()).addListenerForSingleValueEvent(object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val bus = snapshot.children.firstOrNull()?.getValue(BusModel::class.java)
-                if (bus != null) {
-                    if (bus.availableSeats>=numberOfTickets){
-                        callBack(bus,true)
-                    }else{
-                        callBack(bus,false)
+        busRef.orderByChild("busId").equalTo(routeModel.busId.trim())
+            .addListenerForSingleValueEvent(object:ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val bus = snapshot.children.firstOrNull()?.getValue(BusModel::class.java)
+                    if(bus!=null){
+                        if (bus.availableSeats>=numberOfTickets){
+                            callBack(bus,true)
+                        }else{
+                            callBack(bus,false)
+                        }
                     }
                 }
-            }
 
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-        })
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            })
     }
 
     fun sendNotification(context: Context) {

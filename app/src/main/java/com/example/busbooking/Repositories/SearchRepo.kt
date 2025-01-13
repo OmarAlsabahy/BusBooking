@@ -3,6 +3,7 @@ package com.example.busbooking.Repositories
 import android.content.Context
 import android.location.Geocoder
 import android.os.Build
+import com.example.busbooking.Models.BusModel
 import com.example.busbooking.Models.RouteModel
 import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.database.DataSnapshot
@@ -177,5 +178,20 @@ class SearchRepo @Inject constructor(private val database: FirebaseDatabase){
             callBack(latLng)
         }
 
+    }
+
+    fun getBuById(busId:String , callBack:(BusModel)->Unit){
+        val busRef = database.getReference("Buses")
+        busRef.orderByChild("busId").equalTo(busId.trim())
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val bus = snapshot.children.firstOrNull()?.getValue(BusModel::class.java)
+                    callBack(bus!!)
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            })
     }
 }

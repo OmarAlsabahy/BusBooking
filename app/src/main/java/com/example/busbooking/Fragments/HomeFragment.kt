@@ -75,5 +75,10 @@ class HomeFragment : Fragment() {
 
         }
 
+        binding.history.setOnClickListener {
+            val userId = auth.currentUser?.uid
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToHistoryFragment(userId!!))
+        }
+
     }
 }

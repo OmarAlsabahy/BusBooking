@@ -34,4 +34,8 @@
     <string name="fare">Fare</string>
     <string name="you_pay">You Pay</string>
     <string name="book">Book</string>
+    <string name="history">History</string>
+    <string name="tickets">Tickets</string>
+    <string name="bus_number">Bus Number</string>
+    <string name="type">Type</string>
 </resources>

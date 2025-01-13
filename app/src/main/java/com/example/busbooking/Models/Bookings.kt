@@ -4,7 +4,11 @@ data class Bookings (
     val bookingId:String="",
     val userId:String="",
     val busId:String="",
-    val numberOfTickets : Int =0,
-    val totalPrice:Float=0f
+    val totalPrice:Float=0f,
+    val startLocation:String="",
+    val endLocation:String="",
+    val date:String="",
+    val time:String="",
+    val travelTime:String="",
 )
 

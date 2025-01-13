@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.busbooking.ClickListener.BookingClickListener
 import com.example.busbooking.Models.RouteModel
+import com.example.busbooking.ViewModels.SearchViewModel
 import com.example.busbooking.databinding.SearchItemBinding
 
-class SearchTravelAdapter(private val travels : List<RouteModel> , private val listener : BookingClickListener):RecyclerView.Adapter<SearchTravelAdapter.ViewHolder>() {
-
+class SearchTravelAdapter(private val travels : List<RouteModel> , private val listener : BookingClickListener , private val viewModel : SearchViewModel):RecyclerView.Adapter<SearchTravelAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = SearchItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return ViewHolder(binding)
@@ -35,7 +35,13 @@ class SearchTravelAdapter(private val travels : List<RouteModel> , private val l
             binding.endText.text = travel.end
             binding.btnBook.setOnClickListener {
                 listener.onClick(travel)
+
+        }
+
+            viewModel.getBusByRouteId(travel.busId){busModel ->
+                binding.availableSeat.text = busModel.availableSeats.toString()
             }
+
         }
 
     }

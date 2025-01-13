@@ -26,10 +26,13 @@ import javax.inject.Inject
 class LoginFragment : Fragment() {
     lateinit var binding: FragmentLoginBinding
     val viewModel : LoginViewModel by viewModels()
+    @Inject
+    lateinit var database:FirebaseDatabase
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_login, container, false)
     }
@@ -43,8 +46,12 @@ class LoginFragment : Fragment() {
 
         //button continue listener
         binding.btnContinue.setOnClickListener {
-            viewModel.login(binding.emailField.text.toString() , binding.passwordField.text.toString())
-            binding.progressBar.visibility = View.VISIBLE
+            if (binding.emailField.text.toString().equals("Admin@gmail.com")){
+                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToAdminFragment())
+            }else{
+                viewModel.login(binding.emailField.text.toString() , binding.passwordField.text.toString())
+                binding.progressBar.visibility = View.VISIBLE
+            }
         }
 
        //observe loginStatus

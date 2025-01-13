@@ -6,6 +6,5 @@ data class BusModel (
     val busNumber:String="",
     val capacity:Int=0,
     val availableSeats:Int=0,
-    val routeId:String=""
 
 )

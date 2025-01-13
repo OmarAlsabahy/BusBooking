@@ -3,6 +3,7 @@ package com.example.busbooking.ViewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.busbooking.Models.BusModel
 import com.example.busbooking.Models.RouteModel
 import com.example.busbooking.Repositories.SearchRepo
 import com.google.android.gms.maps.model.LatLng
@@ -64,6 +65,12 @@ class SearchViewModel @Inject constructor(private val repo:SearchRepo):ViewModel
 
         repo.getLocationLatLngByName(name){latLng->
             callBack(latLng)
+        }
+    }
+
+    fun getBusByRouteId(busId:String,callBack:(BusModel)->Unit){
+        repo.getBuById(busId){bus->
+            callBack(bus)
         }
     }
 }

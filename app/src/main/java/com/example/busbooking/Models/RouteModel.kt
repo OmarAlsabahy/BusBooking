@@ -14,5 +14,6 @@ data class RouteModel(
     val arrivalTime:String="",
     val price:Float=0F,
     val imageUrl:String="",
-    val travelTime:String=""
+    val travelTime:String="",
+    val busId:String=""
 ):Parcelable

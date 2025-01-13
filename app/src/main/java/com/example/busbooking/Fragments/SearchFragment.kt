@@ -43,7 +43,7 @@ class SearchFragment : Fragment() , BookingClickListener{
                 binding.travelsRecycler.visibility = View.GONE
                 binding.txtNotAvailable.visibility = View.VISIBLE
             }else{
-                val adapter = SearchTravelAdapter(routes,this)
+                val adapter = SearchTravelAdapter(routes,this , viewModel)
                 binding.travelsRecycler.adapter = adapter
                 binding.travelsRecycler.visibility = View.VISIBLE
                 binding.txtNotAvailable.visibility = View.GONE
