@@ -38,4 +38,8 @@
     <string name="tickets">Tickets</string>
     <string name="bus_number">Bus Number</string>
     <string name="type">Type</string>
+    <string name="busname">BusName:</string>
+    <string name="busnumber">BusNumber:</string>
+    <string name="availableseat">AvailableSeat:</string>
+    <string name="capacity">Capacity:</string>
 </resources>

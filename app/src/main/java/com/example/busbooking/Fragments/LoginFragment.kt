@@ -5,20 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.example.busbooking.Models.BusModel
-import com.example.busbooking.Models.RouteModel
 import com.example.busbooking.R
 import com.example.busbooking.ViewModels.LoginViewModel
 import com.example.busbooking.databinding.FragmentLoginBinding
 import com.example.busbooking.showToast
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

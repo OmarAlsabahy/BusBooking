@@ -37,10 +37,7 @@ class SearchTravelAdapter(private val travels : List<RouteModel> , private val l
                 listener.onClick(travel)
 
         }
-
-            viewModel.getBusByRouteId(travel.busId){busModel ->
-                binding.availableSeat.text = busModel.availableSeats.toString()
-            }
+            binding.availableSeat.text = travel.availableSeats.toString()
 
         }
 
