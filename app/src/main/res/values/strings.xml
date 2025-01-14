@@ -55,4 +55,8 @@
     <string name="enter_image_url">Enter Image Url</string>
     <string name="choose_bus">Choose Bus</string>
     <string name="enter_price">Enter Price</string>
+    <string name="txt_userEmail">Email:</string>
+    <string name="name">Name:</string>
+    <string name="phone">Phone:</string>
+    <string name="bookings_date">Date:</string>
 </resources>

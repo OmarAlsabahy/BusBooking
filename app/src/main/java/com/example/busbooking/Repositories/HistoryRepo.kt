@@ -1,6 +1,6 @@
 package com.example.busbooking.Repositories
 
-import com.example.busbooking.Models.Bookings
+import com.example.busbooking.Models.BookingsModel
 import com.example.busbooking.Models.BusModel
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -9,13 +9,13 @@ import com.google.firebase.database.ValueEventListener
 import javax.inject.Inject
 
 class HistoryRepo @Inject constructor(private val database: FirebaseDatabase) {
-    fun getAllUserTicket(userId:String,callBack:(ArrayList<Bookings>)->Unit){
+    fun getAllUserTicket(userId:String,callBack:(ArrayList<BookingsModel>)->Unit){
         val bookingRef = database.getReference("Bookings")
         bookingRef.orderByChild("userId").equalTo(userId.trim()).addValueEventListener(object:ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-                val bookings = arrayListOf<Bookings>()
+                val bookings = arrayListOf<BookingsModel>()
                 for (data in snapshot.children){
-                    val booking = data.getValue(Bookings::class.java)
+                    val booking = data.getValue(BookingsModel::class.java)
                     if (booking != null) {
                         bookings.add(booking)
                     }

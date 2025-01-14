@@ -27,8 +27,9 @@ class TypesAdapter(private val types:List<String> , private val listeners: Types
         holder.binding.btnType.setOnClickListener {
             if (clickedPosition!=position){
                 clickedPosition = position
-                notifyDataSetChanged()
                 listeners.onClick(types[position])
+                notifyDataSetChanged()
+
             }
         }
     }

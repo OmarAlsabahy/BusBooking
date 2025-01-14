@@ -1,6 +1,6 @@
 package com.example.busbooking.Models
 
-data class Bookings (
+data class BookingsModel (
     val bookingId:String="",
     val userId:String="",
     val busId:String="",

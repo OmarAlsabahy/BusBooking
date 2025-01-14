@@ -44,6 +44,16 @@ class AdminFragment : Fragment() , AdminClickListeners , TypesButtonClickListene
                 requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragmentsContainer , fragment)
                     .commit()
             }
+            Tables.Users.name->{
+                val fragment = AdminUsersFragment()
+                requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragmentsContainer,fragment)
+                    .commit()
+            }
+            Tables.Bookings.name->{
+                val fragment = AdminBookingsFragment()
+                requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragmentsContainer,fragment)
+                    .commit()
+            }
         }
     }
 
@@ -67,6 +77,8 @@ class AdminFragment : Fragment() , AdminClickListeners , TypesButtonClickListene
         when(type){
             Tables.Buses.name->navigateToFragment(Tables.Buses.name)
             Tables.Routes.name->navigateToFragment(Tables.Routes.name)
+            Tables.Users.name->navigateToFragment(Tables.Users.name)
+            Tables.Bookings.name->navigateToFragment(Tables.Bookings.name)
         }
     }
 

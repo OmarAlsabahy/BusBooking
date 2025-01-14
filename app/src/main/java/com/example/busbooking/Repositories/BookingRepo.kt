@@ -3,15 +3,11 @@ package com.example.busbooking.Repositories
 import android.app.NotificationManager
 import android.content.Context
 import androidx.core.app.NotificationCompat
-import com.example.busbooking.Models.Bookings
-import com.example.busbooking.Models.BusModel
+import com.example.busbooking.Models.BookingsModel
 import com.example.busbooking.Models.RouteModel
 import com.example.busbooking.R
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import javax.inject.Inject
 
 class BookingRepo @Inject constructor(private val database: FirebaseDatabase) {
@@ -24,7 +20,7 @@ class BookingRepo @Inject constructor(private val database: FirebaseDatabase) {
                 val busId = routeModel.busId
                for (i in 1..numberOfTickets){
                    val bookingId = bookingRef.push().key
-                   val booking = Bookings(
+                   val booking = BookingsModel(
                        bookingId = bookingId!!,
                        busId = busId,
                        userId = userId!!,

@@ -13,7 +13,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/busname"
+            android:text="@string/txt_userEmail"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:textColor="@color/black"
@@ -21,65 +21,66 @@
             android:textSize="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginStart="@dimen/_10sdp"
-            android:id="@+id/txtBusName"/>
+            android:id="@+id/txtUserEmail"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="@dimen/_15sdp"
             android:fontFamily="@font/poppinsregular"
-            app:layout_constraintStart_toEndOf="@id/txtBusName"
+            app:layout_constraintStart_toEndOf="@id/txtUserEmail"
             android:layout_marginStart="@dimen/_10sdp"
+            android:gravity="start"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/txtBusName"
-            app:layout_constraintBottom_toBottomOf="@id/txtBusName"
-            android:text="@string/busname"
+            app:layout_constraintTop_toTopOf="@id/txtUserEmail"
+            app:layout_constraintBottom_toBottomOf="@id/txtUserEmail"
+            android:text="@string/txt_userEmail"
             android:layout_marginEnd="@dimen/_10sdp"
-            android:id="@+id/busName"/>
+            android:id="@+id/userEmail"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/txtBusName"
-            app:layout_constraintTop_toBottomOf="@id/txtBusName"
+            app:layout_constraintStart_toStartOf="@id/txtUserEmail"
+            app:layout_constraintTop_toBottomOf="@id/txtUserEmail"
             android:layout_marginTop="@dimen/_10sdp"
-            android:text="@string/busnumber"
+            android:text="@string/name"
             android:fontFamily="@font/poppinssemibold"
             android:textColor="@color/black"
             android:textSize="@dimen/_20sdp"
-            android:id="@+id/txtBusNumber"/>
+            android:id="@+id/txtUserName"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/busnumber"
+            android:text="@string/username"
             android:fontFamily="@font/poppinsregular"
-            app:layout_constraintStart_toEndOf="@id/txtBusNumber"
             android:layout_marginStart="@dimen/_10sdp"
-            app:layout_constraintEnd_toEndOf="@id/busName"
-            app:layout_constraintTop_toTopOf="@id/txtBusNumber"
-            app:layout_constraintBottom_toBottomOf="@id/txtBusNumber"
+            app:layout_constraintStart_toEndOf="@id/txtUserName"
+            app:layout_constraintEnd_toEndOf="@id/userEmail"
+            app:layout_constraintTop_toTopOf="@id/txtUserName"
+            app:layout_constraintBottom_toBottomOf="@id/txtUserName"
             android:textSize="@dimen/_15sdp"
-            android:id="@+id/busNumber"/>
+            android:id="@+id/userName"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/capacity"
+            android:text="@string/phone"
             android:fontFamily="@font/poppinssemibold"
             android:textColor="@color/black"
             android:textSize="@dimen/_20sdp"
-            app:layout_constraintStart_toStartOf="@id/txtBusNumber"
-            app:layout_constraintTop_toBottomOf="@id/txtBusNumber"
+            app:layout_constraintStart_toStartOf="@id/txtUserName"
+            app:layout_constraintTop_toBottomOf="@id/txtUserName"
             android:layout_marginTop="@dimen/_10sdp"
-            android:id="@+id/txtCapacity"/>
+            android:id="@+id/txtUserPhone"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/txtUserPhone"
             android:layout_marginStart="@dimen/_10sdp"
-            app:layout_constraintStart_toEndOf="@id/txtCapacity"
-            app:layout_constraintEnd_toEndOf="@id/busNumber"
-            app:layout_constraintTop_toTopOf="@id/txtCapacity"
-            app:layout_constraintBottom_toBottomOf="@id/txtCapacity"
+            app:layout_constraintEnd_toEndOf="@id/userName"
+            app:layout_constraintTop_toTopOf="@id/txtUserPhone"
+            app:layout_constraintBottom_toBottomOf="@id/txtUserPhone"
             android:text="@string/capacity"
             android:fontFamily="@font/poppinsregular"
             android:textSize="@dimen/_15sdp"
-            android:id="@+id/capacity"/>
+            android:id="@+id/userPhone"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
