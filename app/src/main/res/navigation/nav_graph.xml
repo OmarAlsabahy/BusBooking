@@ -85,10 +85,27 @@
         <action
             android:id="@+id/action_adminFragment_to_addBusFragment"
             app:destination="@id/addBusFragment" />
+        <action
+            android:id="@+id/action_adminFragment_to_addRoutesFragment"
+            app:destination="@id/addRoutesFragment" />
     </fragment>
     <fragment
         android:id="@+id/addBusFragment"
         android:name="com.example.busbooking.Fragments.AddBusFragment"
         android:label="fragment_add_bus"
         tools:layout="@layout/fragment_add_bus" />
+    <fragment
+        android:id="@+id/addRoutesFragment"
+        android:name="com.example.busbooking.Fragments.AddRoutesFragment"
+        android:label="fragment_add_routes"
+        tools:layout="@layout/fragment_add_routes" >
+        <action
+            android:id="@+id/action_addRoutesFragment_to_addRoutesBuses"
+            app:destination="@id/addRoutesBuses" />
+    </fragment>
+    <fragment
+        android:id="@+id/addRoutesBuses"
+        android:name="com.example.busbooking.Fragments.AddRoutesBuses"
+        android:label="fragment_add_routes_buses"
+        tools:layout="@layout/fragment_add_routes_buses" />
 </navigation>

@@ -22,7 +22,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"
-        android:id="@+id/busesRecycler"/>
+        android:id="@+id/routesRecycler"/>
     <androidx.cardview.widget.CardView
         android:layout_width="@dimen/_50sdp"
         android:layout_height="@dimen/_50sdp"

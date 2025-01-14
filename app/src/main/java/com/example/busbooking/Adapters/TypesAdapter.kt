@@ -3,10 +3,11 @@ package com.example.busbooking.Adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.busbooking.ClickListener.TypesButtonClickListener
 import com.example.busbooking.R
 import com.example.busbooking.databinding.TableItemBinding
 
-class TypesAdapter(private val types:List<String>):RecyclerView.Adapter<TypesAdapter.ViewHolder>() {
+class TypesAdapter(private val types:List<String> , private val listeners: TypesButtonClickListener):RecyclerView.Adapter<TypesAdapter.ViewHolder>() {
     var clickedPosition = 0
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = TableItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
@@ -27,6 +28,7 @@ class TypesAdapter(private val types:List<String>):RecyclerView.Adapter<TypesAda
             if (clickedPosition!=position){
                 clickedPosition = position
                 notifyDataSetChanged()
+                listeners.onClick(types[position])
             }
         }
     }

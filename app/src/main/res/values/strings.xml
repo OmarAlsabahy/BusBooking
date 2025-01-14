@@ -42,4 +42,17 @@
     <string name="busnumber">BusNumber:</string>
     <string name="availableseat">AvailableSeat:</string>
     <string name="capacity">Capacity:</string>
+    <string name="enter_bus_name">Enter Bus Name</string>
+    <string name="enter_bus_number">Enter Bus Number</string>
+    <string name="save">Save</string>
+    <string name="enter_start_destination">Enter Start Destination</string>
+    <string name="enter_end_destination">Enter End Destination</string>
+    <string name="enter_bus_capacity">Enter Bus Capacity</string>
+    <string name="enter_departure_date">Enter Departure Date</string>
+    <string name="enter_departure_time">Enter Departure Time</string>
+    <string name="enter_stop">Enter Stop</string>
+    <string name="enter_arrival_time">Enter Arrival Time</string>
+    <string name="enter_image_url">Enter Image Url</string>
+    <string name="choose_bus">Choose Bus</string>
+    <string name="enter_price">Enter Price</string>
 </resources>
